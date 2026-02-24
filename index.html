@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cscsxx606 | 全栈开发者</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">cscsxx606</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#skills">技能</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="glitch" data-text="Hello, World">Hello, World</h1>
+                <p class="subtitle">我是 <span class="highlight">cscsxx606</span></p>
+                <p class="description">全栈开发者 | 自动化专家 | 开源贡献者</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">查看作品</a>
+                    <a href="#contact" class="btn btn-secondary">联系我</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/cscsxx606" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <pre class="code-content">
+<span class="keyword">const</span> <span class="variable">developer</span> = {
+    <span class="property">name</span>: <span class="string">"cscsxx606"</span>,
+    <span class="property">skills</span>: [<span class="string">"Python"</span>, <span class="string">"JavaScript"</span>, 
+               <span class="string">"Node.js"</span>, <span class="string">"Automation"</span>],
+    <span class="property">passion</span>: <span class="string">"Building things"</span>,
+    <span class="property">available</span>: <span class="boolean">true</span>
+};
+
+<span class="comment">// Let's build something amazing!</span>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>向下滚动</p>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我是一名热爱技术的全栈开发者，专注于构建高效、可扩展的解决方案。</p>
+                    <p>擅长自动化工具开发、API 集成、数据处理和 Web 应用开发。</p>
+                    <p>热衷于开源项目，相信技术可以改变世界。</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">年开发经验</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">完成项目</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">开源贡献</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="placeholder-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">技术栈</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>爬虫、自动化、数据分析、API 开发</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript/Node.js</h3>
+                    <p>后端开发、工具脚本、自动化</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>数据库</h3>
+                    <p>MySQL、MongoDB、Redis</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-docker"></i>
+                    <h3>DevOps</h3>
+                    <p>Docker、CI/CD、Linux</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>自动化</h3>
+                    <p>爬虫、RPA、定时任务</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>版本控制</h3>
+                    <p>Git、GitHub、协作开发</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">精选项目</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon"><i class="fas fa-search"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>百度搜索 API</h3>
+                        <p>Python 封装的百度搜索 API，支持网页、图片、新闻、视频搜索。带重试机制、日志记录。</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">API</span>
+                            <span class="tag">爬虫</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/cscsxx606/baidu-search-api" target="_blank" class="btn btn-small">
+                                <i class="fab fa-github"></i> 源码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon"><i class="fas fa-newspaper"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>财经新闻推送</h3>
+                        <p>自动化财经新闻采集与推送系统，支持多数据源、智能去重、自动总结。</p>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">自动化</span>
+                            <span class="tag">消息推送</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> 源码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>智能助手系统</h3>
+                        <p>基于 OpenClaw 的智能助手，集成多平台消息、任务自动化、知识库管理。</p>
+                        <div class="project-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">自动化</span>
+                            <span class="tag">集成</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> 源码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>SSL 证书监控</h3>
+                        <p>自动化 SSL 证书过期监控工具，支持批量检查、到期提醒。</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">安全</span>
+                            <span class="tag">监控</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">
+                                <i class="fab fa-github"></i> 源码
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务 -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">我能为你做什么</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>定制开发</h3>
+                    <p>根据需求开发专属工具、脚本、API</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Bug 修复</h3>
+                    <p>快速定位并修复代码问题</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>自动化</h3>
+                    <p>工作流程自动化，提升效率</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>数据处理</h3>
+                    <p>爬虫、数据清洗、分析</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>邮箱</h3>
+                            <p>your@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/cscsxx606</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>位置</h3>
+                            <p>远程工作</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="你的名字" required>
+                    <input type="email" placeholder="你的邮箱" required>
+                    <textarea placeholder="项目描述..." rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 cscsxx606. All rights reserved.</p>
+            <p>Made with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
