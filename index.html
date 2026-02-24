@@ -1,23 +1,94 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cscsxx606 | 全栈开发者</title>
+    <title>cscsxx606 | Full Stack Developer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 语言切换标签样式 */
+        .lang-tabs {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .lang-tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .lang-tab:hover {
+            color: var(--text-primary);
+        }
+        
+        .lang-tab.active {
+            color: white;
+            background: var(--gradient);
+        }
+        
+        /* 语言内容显示控制 */
+        [data-lang] {
+            display: none;
+        }
+        
+        [data-lang].active {
+            display: block;
+        }
+        
+        /* 内联元素的语言切换 */
+        span[data-lang].active {
+            display: inline;
+        }
+        
+        /* 导航链接的语言切换 */
+        .nav-links li a[data-lang].active {
+            display: inline;
+        }
+        
+        /* 按钮的语言切换 */
+        .btn[data-lang].active {
+            display: inline-flex;
+        }
+        
+        /* 服务卡片的语言切换 */
+        .service-card p[data-lang].active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <!-- 语言切换标签 -->
+    <div class="lang-tabs">
+        <button class="lang-tab active" onclick="switchLang('zh')">中文</button>
+        <button class="lang-tab" onclick="switchLang('en')">EN</button>
+    </div>
+
     <!-- 导航 -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">cscsxx606</div>
             <ul class="nav-links">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#about">关于</a></li>
-                <li><a href="#skills">技能</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#contact">联系</a></li>
+                <li><a href="#home" data-lang="zh" class="active">首页</a><a href="#home" data-lang="en">Home</a></li>
+                <li><a href="#about" data-lang="zh" class="active">关于</a><a href="#about" data-lang="en">About</a></li>
+                <li><a href="#skills" data-lang="zh" class="active">技能</a><a href="#skills" data-lang="en">Skills</a></li>
+                <li><a href="#projects" data-lang="zh" class="active">项目</a><a href="#projects" data-lang="en">Projects</a></li>
+                <li><a href="#services" data-lang="zh" class="active">服务</a><a href="#services" data-lang="en">Services</a></li>
+                <li><a href="#contact" data-lang="zh" class="active">联系</a><a href="#contact" data-lang="en">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -32,16 +103,20 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="glitch" data-text="Hello, World">Hello, World</h1>
-                <p class="subtitle">我是 <span class="highlight">cscsxx606</span></p>
-                <p class="description">全栈开发者 | 自动化专家 | 开源贡献者</p>
+                <p class="subtitle" data-lang="zh" class="active">我是 <span class="highlight">cscsxx606</span></p>
+                <p class="subtitle" data-lang="en">I'm <span class="highlight">cscsxx606</span></p>
+                <p class="description" data-lang="zh" class="active">全栈开发者 | 自动化专家 | 开源贡献者</p>
+                <p class="description" data-lang="en">Full Stack Developer | Automation Expert | Open Source Contributor</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">查看作品</a>
-                    <a href="#contact" class="btn btn-secondary">联系我</a>
+                    <a href="#projects" class="btn btn-primary" data-lang="zh" class="active">查看作品</a>
+                    <a href="#projects" class="btn btn-primary" data-lang="en">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary" data-lang="zh" class="active">联系我</a>
+                    <a href="#contact" class="btn btn-secondary" data-lang="en">Hire Me</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/cscsxx606" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:wscc2030@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/cscsxx606" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:wscc2030@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="hero-image">
@@ -56,11 +131,11 @@
     <span class="property">name</span>: <span class="string">"cscsxx606"</span>,
     <span class="property">skills</span>: [<span class="string">"Python"</span>, <span class="string">"JavaScript"</span>, 
                <span class="string">"Node.js"</span>, <span class="string">"Automation"</span>],
-    <span class="property">passion</span>: <span class="string">"Building things"</span>,
+    <span class="property">passion</span>: <span class="string" data-lang="zh" class="active">"Building things"</span><span class="string" data-lang="en">"Building solutions"</span>,
     <span class="property">available</span>: <span class="boolean">true</span>
 };
 
-<span class="comment">// Let's build something amazing!</span>
+<span class="comment" data-lang="zh" class="active">// 让我们一起创造惊人的作品！</span><span class="comment" data-lang="en">// Let's build something amazing together!</span>
                     </pre>
                 </div>
             </div>
@@ -69,31 +144,42 @@
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
-            <p>向下滚动</p>
+            <p data-lang="zh" class="active">向下滚动</p>
+            <p data-lang="en">Scroll Down</p>
         </div>
     </section>
 
     <!-- 关于我 -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">关于我</h2>
+            <h2 class="section-title" data-lang="zh" class="active">关于我</h2>
+            <h2 class="section-title" data-lang="en">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>我是一名热爱技术的全栈开发者，专注于构建高效、可扩展的解决方案。</p>
-                    <p>擅长自动化工具开发、API 集成、数据处理和 Web 应用开发。</p>
-                    <p>热衷于开源项目，相信技术可以改变世界。</p>
+                    <p data-lang="zh" class="active">我是一名热爱技术的全栈开发者，专注于构建高效、可扩展的解决方案。</p>
+                    <p data-lang="en">I'm a passionate full-stack developer focused on building efficient, scalable solutions.</p>
+                    
+                    <p data-lang="zh" class="active">擅长自动化工具开发、API 集成、数据处理和 Web 应用开发。</p>
+                    <p data-lang="en">Specialized in automation tools, API integration, data processing, and web application development.</p>
+                    
+                    <p data-lang="zh" class="active">热衷于开源项目，相信技术可以改变世界。</p>
+                    <p data-lang="en">Open source enthusiast. I believe technology can change the world.</p>
+                    
                     <div class="stats">
                         <div class="stat-item">
                             <span class="stat-number">5+</span>
-                            <span class="stat-label">年开发经验</span>
+                            <span class="stat-label" data-lang="zh" class="active">年开发经验</span>
+                            <span class="stat-label" data-lang="en">Years Experience</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">50+</span>
-                            <span class="stat-label">完成项目</span>
+                            <span class="stat-label" data-lang="zh" class="active">完成项目</span>
+                            <span class="stat-label" data-lang="en">Projects Completed</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">20+</span>
-                            <span class="stat-label">开源贡献</span>
+                            <span class="stat-label" data-lang="zh" class="active">开源贡献</span>
+                            <span class="stat-label" data-lang="en">Open Source Contributions</span>
                         </div>
                     </div>
                 </div>
@@ -111,12 +197,14 @@
     <!-- 技能 -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">技术栈</h2>
+            <h2 class="section-title" data-lang="zh" class="active">技术栈</h2>
+            <h2 class="section-title" data-lang="en">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <i class="fab fa-python"></i>
                     <h3>Python</h3>
-                    <p>爬虫、自动化、数据分析、API 开发</p>
+                    <p data-lang="zh" class="active">爬虫、自动化、数据分析、API 开发</p>
+                    <p data-lang="en">Web scraping, automation, data analysis, API development</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 95%"></div>
                     </div>
@@ -124,15 +212,18 @@
                 <div class="skill-card">
                     <i class="fab fa-js"></i>
                     <h3>JavaScript/Node.js</h3>
-                    <p>后端开发、工具脚本、自动化</p>
+                    <p data-lang="zh" class="active">后端开发、工具脚本、自动化</p>
+                    <p data-lang="en">Backend development, tool scripting, automation</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 90%"></div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-database"></i>
-                    <h3>数据库</h3>
-                    <p>MySQL、MongoDB、Redis</p>
+                    <h3 data-lang="zh" class="active">数据库</h3>
+                    <h3 data-lang="en">Databases</h3>
+                    <p data-lang="zh" class="active">MySQL、MongoDB、Redis</p>
+                    <p data-lang="en">MySQL, MongoDB, Redis, data modeling</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 85%"></div>
                     </div>
@@ -140,23 +231,28 @@
                 <div class="skill-card">
                     <i class="fab fa-docker"></i>
                     <h3>DevOps</h3>
-                    <p>Docker、CI/CD、Linux</p>
+                    <p data-lang="zh" class="active">Docker、CI/CD、Linux</p>
+                    <p data-lang="en">Docker, CI/CD, Linux, cloud deployment</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 80%"></div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-robot"></i>
-                    <h3>自动化</h3>
-                    <p>爬虫、RPA、定时任务</p>
+                    <h3 data-lang="zh" class="active">自动化</h3>
+                    <h3 data-lang="en">Automation</h3>
+                    <p data-lang="zh" class="active">爬虫、RPA、定时任务</p>
+                    <p data-lang="en">Web scraping, RPA, scheduled tasks, bots</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 95%"></div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-git-alt"></i>
-                    <h3>版本控制</h3>
-                    <p>Git、GitHub、协作开发</p>
+                    <h3 data-lang="zh" class="active">版本控制</h3>
+                    <h3 data-lang="en">Version Control</h3>
+                    <p data-lang="zh" class="active">Git、GitHub、协作开发</p>
+                    <p data-lang="en">Git, GitHub, collaborative development</p>
                     <div class="skill-level">
                         <div class="skill-bar" style="width: 90%"></div>
                     </div>
@@ -168,7 +264,8 @@
     <!-- 项目展示 -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">精选项目</h2>
+            <h2 class="section-title" data-lang="zh" class="active">精选项目</h2>
+            <h2 class="section-title" data-lang="en">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
@@ -176,15 +273,17 @@
                     </div>
                     <div class="project-content">
                         <h3>百度搜索 API</h3>
-                        <p>Python 封装的百度搜索 API，支持网页、图片、新闻、视频搜索。带重试机制、日志记录。</p>
+                        <p data-lang="zh" class="active">Python 封装的百度搜索 API，支持网页、图片、新闻、视频搜索。</p>
+                        <p data-lang="en">Python wrapper for Baidu search API supporting web, image, news, and video search.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">API</span>
-                            <span class="tag">爬虫</span>
+                            <span class="tag" data-lang="zh" class="active">爬虫</span>
+                            <span class="tag" data-lang="en">Web Scraping</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/cscsxx606/baidu-search-api" target="_blank" class="btn btn-small">
-                                <i class="fab fa-github"></i> 源码
+                                <i class="fab fa-github"></i> <span data-lang="zh" class="active">源码</span><span data-lang="en">Source</span>
                             </a>
                         </div>
                     </div>
@@ -195,16 +294,18 @@
                         <div class="project-icon"><i class="fas fa-newspaper"></i></div>
                     </div>
                     <div class="project-content">
-                        <h3>财经新闻推送</h3>
-                        <p>自动化财经新闻采集与推送系统，支持多数据源、智能去重、自动总结。</p>
+                        <h3 data-lang="zh" class="active">财经新闻推送</h3>
+                        <h3 data-lang="en">Financial News Aggregator</h3>
+                        <p data-lang="zh" class="active">自动化财经新闻采集与推送系统，支持多数据源、智能去重。</p>
+                        <p data-lang="en">Automated financial news collection with multi-source support and smart deduplication.</p>
                         <div class="project-tags">
                             <span class="tag">Node.js</span>
-                            <span class="tag">自动化</span>
-                            <span class="tag">消息推送</span>
+                            <span class="tag" data-lang="zh" class="active">自动化</span>
+                            <span class="tag" data-lang="en">Automation</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">
-                                <i class="fab fa-github"></i> 源码
+                                <i class="fab fa-github"></i> <span data-lang="zh" class="active">源码</span><span data-lang="en">Source</span>
                             </a>
                         </div>
                     </div>
@@ -215,16 +316,18 @@
                         <div class="project-icon"><i class="fas fa-robot"></i></div>
                     </div>
                     <div class="project-content">
-                        <h3>智能助手系统</h3>
-                        <p>基于 OpenClaw 的智能助手，集成多平台消息、任务自动化、知识库管理。</p>
+                        <h3 data-lang="zh" class="active">智能助手系统</h3>
+                        <h3 data-lang="en">AI Assistant System</h3>
+                        <p data-lang="zh" class="active">基于 OpenClaw 的智能助手，集成多平台消息、任务自动化。</p>
+                        <p data-lang="en">Intelligent assistant based on OpenClaw with multi-platform messaging and task automation.</p>
                         <div class="project-tags">
                             <span class="tag">AI</span>
-                            <span class="tag">自动化</span>
-                            <span class="tag">集成</span>
+                            <span class="tag" data-lang="zh" class="active">自动化</span>
+                            <span class="tag" data-lang="en">Automation</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">
-                                <i class="fab fa-github"></i> 源码
+                                <i class="fab fa-github"></i> <span data-lang="zh" class="active">源码</span><span data-lang="en">Source</span>
                             </a>
                         </div>
                     </div>
@@ -235,16 +338,18 @@
                         <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
                     </div>
                     <div class="project-content">
-                        <h3>SSL 证书监控</h3>
-                        <p>自动化 SSL 证书过期监控工具，支持批量检查、到期提醒。</p>
+                        <h3 data-lang="zh" class="active">SSL 证书监控</h3>
+                        <h3 data-lang="en">SSL Certificate Monitor</h3>
+                        <p data-lang="zh" class="active">自动化 SSL 证书过期监控工具，支持批量检查、到期提醒。</p>
+                        <p data-lang="en">Automated SSL certificate expiration monitoring with batch checking and alerts.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
-                            <span class="tag">安全</span>
-                            <span class="tag">监控</span>
+                            <span class="tag" data-lang="zh" class="active">安全</span>
+                            <span class="tag" data-lang="en">Security</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="btn btn-small">
-                                <i class="fab fa-github"></i> 源码
+                                <i class="fab fa-github"></i> <span data-lang="zh" class="active">源码</span><span data-lang="en">Source</span>
                             </a>
                         </div>
                     </div>
@@ -256,27 +361,50 @@
     <!-- 服务 -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">我能为你做什么</h2>
+            <h2 class="section-title" data-lang="zh" class="active">我能为你做什么</h2>
+            <h2 class="section-title" data-lang="en">What I Can Do For You</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-code"></i>
-                    <h3>定制开发</h3>
-                    <p>根据需求开发专属工具、脚本、API</p>
+                    <h3 data-lang="zh" class="active">定制开发</h3>
+                    <h3 data-lang="en">Custom Development</h3>
+                    <p data-lang="zh" class="active">根据需求开发专属工具、脚本、API</p>
+                    <p data-lang="en">Build custom tools, scripts, and APIs tailored to your needs</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-bug"></i>
-                    <h3>Bug 修复</h3>
-                    <p>快速定位并修复代码问题</p>
+                    <h3 data-lang="zh" class="active">Bug 修复</h3>
+                    <h3 data-lang="en">Bug Fixing</h3>
+                    <p data-lang="zh" class="active">快速定位并修复代码问题</p>
+                    <p data-lang="en">Quickly identify and resolve code issues in your projects</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-cogs"></i>
-                    <h3>自动化</h3>
-                    <p>工作流程自动化，提升效率</p>
+                    <h3 data-lang="zh" class="active">自动化</h3>
+                    <h3 data-lang="en">Automation</h3>
+                    <p data-lang="zh" class="active">工作流程自动化，提升效率</p>
+                    <p data-lang="en">Automate workflows and repetitive tasks to boost productivity</p>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-database"></i>
-                    <h3>数据处理</h3>
-                    <p>爬虫、数据清洗、分析</p>
+                    <h3 data-lang="zh" class="active">数据处理</h3>
+                    <h3 data-lang="en">Data Processing</h3>
+                    <p data-lang="zh" class="active">爬虫、数据清洗、分析</p>
+                    <p data-lang="en">Web scraping, data cleaning, analysis, and visualization</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-plug"></i>
+                    <h3 data-lang="zh" class="active">API 集成</h3>
+                    <h3 data-lang="en">API Integration</h3>
+                    <p data-lang="zh" class="active">连接和集成第三方 API 到您的系统</p>
+                    <p data-lang="en">Connect and integrate third-party APIs into your systems</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3 data-lang="zh" class="active">DevOps</h3>
+                    <h3 data-lang="en">DevOps</h3>
+                    <p data-lang="zh" class="active">Docker 容器化、CI/CD 流水线、部署</p>
+                    <p data-lang="en">Docker containerization, CI/CD pipelines, deployment</p>
                 </div>
             </div>
         </div>
@@ -285,13 +413,17 @@
     <!-- 联系 -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">联系我</h2>
+            <h2 class="section-title" data-lang="zh" class="active">联系我</h2>
+            <h2 class="section-title" data-lang="en">Get In Touch</h2>
+            <p class="section-subtitle" data-lang="zh" class="active">有项目想法？让我们讨论如何帮助您。</p>
+            <p class="section-subtitle" data-lang="en">Have a project in mind? Let's discuss how I can help.</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h3>邮箱</h3>
+                            <h3 data-lang="zh" class="active">邮箱</h3>
+                            <h3 data-lang="en">Email</h3>
                             <p>wscc2030@gmail.com</p>
                         </div>
                     </div>
@@ -303,18 +435,36 @@
                         </div>
                     </div>
                     <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3 data-lang="zh" class="active">工作时间</h3>
+                            <h3 data-lang="en">Availability</h3>
+                            <p data-lang="zh" class="active">周一至周五, 9:00-18:00 (GMT+8)</p>
+                            <p data-lang="en">Monday - Friday, 9AM - 6PM (GMT+8)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h3>位置</h3>
-                            <p>远程工作</p>
+                            <h3 data-lang="zh" class="active">位置</h3>
+                            <h3 data-lang="en">Location</h3>
+                            <p data-lang="zh" class="active">远程工作</p>
+                            <p data-lang="en">Remote Worldwide</p>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="你的名字" required>
-                    <input type="email" placeholder="你的邮箱" required>
-                    <textarea placeholder="项目描述..." rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">发送消息</button>
+                <form class="contact-form" action="mailto:wscc2030@gmail.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" data-lang="zh" class="active" placeholder="你的名字" required>
+                    <input type="text" name="name" data-lang="en" placeholder="Your Name" required>
+                    <input type="email" name="email" data-lang="zh" class="active" placeholder="你的邮箱" required>
+                    <input type="email" name="email" data-lang="en" placeholder="Your Email" required>
+                    <input type="text" name="subject" data-lang="zh" class="active" placeholder="项目主题" required>
+                    <input type="text" name="subject" data-lang="en" placeholder="Project Subject" required>
+                    <textarea name="message" data-lang="zh" class="active" placeholder="告诉我关于你的项目..." rows="5" required></textarea>
+                    <textarea name="message" data-lang="en" placeholder="Tell me about your project..." rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> <span data-lang="zh" class="active">发送消息</span><span data-lang="en">Send Message</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -323,11 +473,63 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 cscsxx606. All rights reserved.</p>
-            <p>Made with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>cscsxx606</h3>
+                    <p data-lang="zh" class="active">全栈开发者 & 自动化专家</p>
+                    <p data-lang="en">Full Stack Developer & Automation Expert</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/cscsxx606" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:wscc2030@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 cscsxx606. All rights reserved.</p>
+                <p data-lang="zh" class="active">用 <i class="fas fa-heart"></i> 和大量 <i class="fas fa-coffee"></i> 制作</p>
+                <p data-lang="en">Made with <i class="fas fa-heart"></i> and lots of <i class="fas fa-coffee"></i></p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // 语言切换功能
+        function switchLang(lang) {
+            // 更新标签状态
+            document.querySelectorAll('.lang-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 切换所有语言元素
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            
+            // 保存语言偏好
+            localStorage.setItem('preferred-lang', lang);
+            
+            // 更新页面标题
+            if (lang === 'en') {
+                document.title = 'cscsxx606 | Full Stack Developer';
+            } else {
+                document.title = 'cscsxx606 | 全栈开发者';
+            }
+        }
+        
+        // 页面加载时恢复语言偏好
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-lang');
+            if (savedLang === 'en') {
+                document.querySelector('.lang-tab:last-child').click();
+            }
+        });
+    </script>
 </body>
 </html>
