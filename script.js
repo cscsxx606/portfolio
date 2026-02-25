@@ -110,21 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 表单提交处理 - FormSubmit 会自动处理提交
-const contactForm = document.querySelector('.contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        // 显示提交中状态
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 发送中...';
-        submitBtn.disabled = true;
-        
-        // FormSubmit 会处理实际的表单提交
-        // 提交后会自动跳转到 _next 指定的页面
-    });
-}
+// 表单提交处理 - FormSubmit 会自动处理提交，无需额外 JS 干预
 
 // 代码高亮动画
 const codeContent = document.querySelector('.code-content');
