@@ -110,29 +110,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 表单提交处理
+// 表单提交处理 - FormSubmit 会自动处理提交
 const contactForm = document.querySelector('.contact-form');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // 显示提交中状态
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = '发送中...';
-    submitBtn.disabled = true;
-    
-    // 模拟发送（实际项目中需要后端支持）
-    setTimeout(() => {
-        alert('消息已发送！我会尽快回复你。');
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 1500);
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        // 显示提交中状态
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 发送中...';
+        submitBtn.disabled = true;
+        
+        // FormSubmit 会处理实际的表单提交
+        // 提交后会自动跳转到 _next 指定的页面
+    });
+}
 
 // 代码高亮动画
 const codeContent = document.querySelector('.code-content');

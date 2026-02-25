@@ -590,17 +590,13 @@
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://cscsxx606.github.io/portfolio/">
                     
-                    <!-- 表单字段 -->
-                    <input type="text" name="name" data-lang="zh" class="active" placeholder="你的名字" required>
-                    <input type="text" name="name" data-lang="en" placeholder="Your Name" required>
-                    <input type="email" name="email" data-lang="zh" class="active" placeholder="你的邮箱" required>
-                    <input type="email" name="email" data-lang="en" placeholder="Your Email" required>
-                    <input type="text" name="subject" data-lang="zh" class="active" placeholder="项目主题" required>
-                    <input type="text" name="subject" data-lang="en" placeholder="Project Subject" required>
-                    <textarea name="message" data-lang="zh" class="active" placeholder="告诉我关于你的项目..." rows="5" required></textarea>
-                    <textarea name="message" data-lang="en" placeholder="Tell me about your project..." rows="5" required></textarea>
+                    <!-- 表单字段 - 使用通用 placeholder，通过 JS 切换 -->
+                    <input type="text" name="name" id="form-name" placeholder="你的名字" required>
+                    <input type="email" name="email" id="form-email" placeholder="你的邮箱" required>
+                    <input type="text" name="subject" id="form-subject" placeholder="项目主题" required>
+                    <textarea name="message" id="form-message" placeholder="告诉我关于你的项目..." rows="5" required></textarea>
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> <span data-lang="zh" class="active">发送消息</span><span data-lang="en">Send Message</span>
+                        <i class="fas fa-paper-plane"></i> <span id="form-submit-text">发送消息</span>
                     </button>
                 </form>
             </div>
@@ -639,7 +635,7 @@
                 tab.classList.remove('active');
             });
             event.target.classList.add('active');
-            
+
             // 切换所有语言元素
             document.querySelectorAll('[data-lang]').forEach(el => {
                 if (el.getAttribute('data-lang') === lang) {
@@ -648,10 +644,35 @@
                     el.classList.remove('active');
                 }
             });
-            
+
+            // 更新表单 placeholder
+            const formPlaceholders = {
+                zh: {
+                    name: '你的名字',
+                    email: '你的邮箱',
+                    subject: '项目主题',
+                    message: '告诉我关于你的项目...',
+                    submit: '发送消息'
+                },
+                en: {
+                    name: 'Your Name',
+                    email: 'Your Email',
+                    subject: 'Project Subject',
+                    message: 'Tell me about your project...',
+                    submit: 'Send Message'
+                }
+            };
+
+            const placeholders = formPlaceholders[lang];
+            document.getElementById('form-name').placeholder = placeholders.name;
+            document.getElementById('form-email').placeholder = placeholders.email;
+            document.getElementById('form-subject').placeholder = placeholders.subject;
+            document.getElementById('form-message').placeholder = placeholders.message;
+            document.getElementById('form-submit-text').textContent = placeholders.submit;
+
             // 保存语言偏好
             localStorage.setItem('preferred-lang', lang);
-            
+
             // 更新页面标题
             if (lang === 'en') {
                 document.title = 'cscsxx606 | Full Stack Developer';
