@@ -583,7 +583,14 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" action="mailto:wscc2030@gmail.com" method="post" enctype="text/plain">
+                <form class="contact-form" action="https://formsubmit.co/wscc2030@gmail.com" method="POST">
+                    <!-- FormSubmit 配置 -->
+                    <input type="hidden" name="_subject" value="Portfolio网站新消息">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://cscsxx606.github.io/portfolio/">
+                    
+                    <!-- 表单字段 -->
                     <input type="text" name="name" data-lang="zh" class="active" placeholder="你的名字" required>
                     <input type="text" name="name" data-lang="en" placeholder="Your Name" required>
                     <input type="email" name="email" data-lang="zh" class="active" placeholder="你的邮箱" required>
