@@ -583,11 +583,12 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" action="https://formsubmit.co/wscc2030@gmail.com" method="POST">
-                    <!-- FormSubmit 配置 -->
+                <form class="contact-form" action="https://getform.io/f/b6ys0b3aqxa" method="POST">
+                    <!-- Getform 配置 -->
                     <input type="hidden" name="_subject" value="Portfolio网站新消息">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Honeypot 防垃圾邮件 -->
+                    <input type="text" name="_gotcha" style="display:none">
                     
                     <!-- 表单字段 - 使用通用 placeholder，通过 JS 切换 -->
                     <input type="text" name="name" id="form-name" placeholder="你的名字" required>
